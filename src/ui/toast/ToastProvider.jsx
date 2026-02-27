@@ -1,72 +1,70 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react'
-import { ToastContext } from './ToastContext'
-import ToastViewport from './ToastViewport'
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { ToastContext } from "./ToastContext";
+import ToastViewport from "./ToastViewport";
 
-let toastCount = 0
+let toastCount = 0;
 
 export default function ToastProvider({ children }) {
-  const [toasts, setToasts] = useState([])
-  const timeoutsRef = useRef({})
-  const liveRegionRef = useRef(null)
+  const [toasts, setToasts] = useState([]);
+  const timeoutsRef = useRef({});
 
-  // Dismiss toast
   const dismiss = useCallback((id) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id))
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+
     if (timeoutsRef.current[id]) {
-      clearTimeout(timeoutsRef.current[id])
-      delete timeoutsRef.current[id]
+      clearTimeout(timeoutsRef.current[id]);
+      delete timeoutsRef.current[id];
     }
-  }, [])
+  }, []);
 
-  // Notify function
-  const notify = useCallback(({ type = 'info', message, durationMs = 3000 }) => {
-    const id = String(++toastCount)
+  const notify = useCallback(
+    ({ type = "info", message, durationMs = 3000 }) => {
+      const id = String(++toastCount);
+      const toast = {
+        id,
+        type,
+        message,
+        createdAt: Date.now(),
+      };
 
-    // Create toast object
-    const toast = {
-      id,
-      type,
-      message,
-      createdAt: Date.now(),
-    }
+      setToasts((prev) => [...prev, toast]);
 
-    // Add toast to state
-    setToasts((prev) => [...prev, toast])
+      const liveRegion = document.getElementById("toast-live-region");
+      if (liveRegion) {
+        liveRegion.textContent = message;
+      }
 
-    // Update live region for accessibility
-    const liveRegion = document.getElementById('toast-live-region')
-    if (liveRegion) {
-      liveRegion.textContent = message
-    }
+      if (durationMs > 0) {
+        const timeoutId = setTimeout(() => {
+          dismiss(id);
+        }, durationMs);
 
-    // Auto-dismiss after durationMs
-    if (durationMs > 0) {
-      const timeoutId = setTimeout(() => {
-        dismiss(id)
-      }, durationMs)
-      timeoutsRef.current[id] = timeoutId
-    }
+        timeoutsRef.current[id] = timeoutId;
+      }
 
-    return id
-  }, [dismiss])
+      return id;
+    },
+    [dismiss]
+  );
 
-  // Cleanup timeouts on unmount
   useEffect(() => {
+    const timeouts = timeoutsRef.current;
+
     return () => {
-      Object.values(timeoutsRef.current).forEach(clearTimeout)
-    }
-  }, [])
+      Object.values(timeouts).forEach(clearTimeout);
+    };
+  }, []);
 
   const value = {
     toasts,
     notify,
     dismiss,
-  }
+  };
 
   return (
     <ToastContext.Provider value={value}>
       {children}
       <ToastViewport />
     </ToastContext.Provider>
-  )
+  );
 }

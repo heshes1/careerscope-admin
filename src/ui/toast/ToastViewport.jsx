@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
-import { ToastContext } from './ToastContext'
+import React, { useContext } from "react";
+import { ToastContext } from "./ToastContext";
 
 export default function ToastViewport() {
-  const { toasts, dismiss } = useContext(ToastContext)
+  const { toasts, dismiss } = useContext(ToastContext);
 
   return (
     <>
@@ -39,5 +39,5 @@ export default function ToastViewport() {
         ))}
       </div>
     </>
-  )
+  );
 }

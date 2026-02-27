@@ -1,22 +1,22 @@
 /* ====== CSS Variables & Theme ====== */
 :root {
   /* Colors */
-  --bg-light: #F7FAFF;
-  --bg-white: #FFFFFF;
-  --primary-blue: #1D4ED8;
-  --blue-50: #EFF6FF;
-  --blue-100: #EEF4FF;
-  --blue-200: #DBEAFE;
-  --blue-300: #BFDBFE;
-  --blue-400: #60A5FA;
-  --blue-500: #3B82F6;
-  --blue-600: #2563EB;
-  --blue-700: #1D4ED8;
-  --border-light: #E2E8F0;
-  --text-dark: #0F172A;
+  --bg-light: #f7faff;
+  --bg-white: #ffffff;
+  --primary-blue: #1d4ed8;
+  --blue-50: #eff6ff;
+  --blue-100: #eef4ff;
+  --blue-200: #dbeafe;
+  --blue-300: #bfdbfe;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --border-light: #e2e8f0;
+  --text-dark: #0f172a;
   --text-muted: #475569;
-  --text-light: #64748B;
-  
+  --text-light: #64748b;
+
   /* Spacing */
   --radius: 8px;
   --radius-sm: 6px;
@@ -33,13 +33,15 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif;
   background-color: var(--bg-light);
   color: var(--text-dark);
   line-height: 1.5;
@@ -188,7 +190,7 @@ a:hover {
 }
 
 .btn:disabled {
-  background-color: #CBD5E1;
+  background-color: #cbd5e1;
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -215,11 +217,11 @@ a:hover {
 }
 
 .btn.danger {
-  background-color: #D32F2F;
+  background-color: #d32f2f;
 }
 
 .btn.danger:hover {
-  background-color: #C62828;
+  background-color: #c62828;
 }
 
 /* ====== Forms ====== */
@@ -256,7 +258,7 @@ a:hover {
   color: var(--text-light);
 }
 
-.form-row input[type='date'] {
+.form-row input[type="date"] {
   cursor: pointer;
 }
 
@@ -383,27 +385,27 @@ a:hover {
 }
 
 .badge.indigo {
-  background-color: #E0E7FF;
-  color: #4F46E5;
-  border: 1px solid #C7D2FE;
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
 }
 
 .badge.purple {
-  background-color: #F3E8FF;
-  color: #9333EA;
-  border: 1px solid #E9D5FF;
+  background-color: #f3e8ff;
+  color: #9333ea;
+  border: 1px solid #e9d5ff;
 }
 
 .badge.pink {
-  background-color: #FCE7F3;
-  color: #BE185D;
-  border: 1px solid #FBCFE8;
+  background-color: #fce7f3;
+  color: #be185d;
+  border: 1px solid #fbcfe8;
 }
 
 .badge.cyan {
-  background-color: #ECFDF5;
-  color: #0D9488;
-  border: 1px solid #CCFBF1;
+  background-color: #ecfdf5;
+  color: #0d9488;
+  border: 1px solid #ccfbf1;
 }
 
 /* ====== Modal ====== */
@@ -482,13 +484,13 @@ a:hover {
 }
 
 .error {
-  color: #DC2626;
+  color: #dc2626;
   font-size: 13px;
   margin-top: 4px;
 }
 
 .success {
-  color: #16A34A;
+  color: #16a34a;
   font-size: 13px;
   margin-top: 4px;
 }
@@ -613,21 +615,21 @@ a:hover {
 }
 
 .toast-success {
-  background-color: #DCFCE7;
-  border-color: #BBF7D0;
+  background-color: #dcfce7;
+  border-color: #bbf7d0;
   color: #166534;
 }
 
 .toast-error {
-  background-color: #FEE2E2;
-  border-color: #FECACA;
-  color: #991B1B;
+  background-color: #fee2e2;
+  border-color: #fecaca;
+  color: #991b1b;
 }
 
 .toast-info {
-  background-color: #EFF6FF;
-  border-color: #DBEAFE;
-  color: #1E40AF;
+  background-color: #eff6ff;
+  border-color: #dbeafe;
+  color: #1e40af;
 }
 
 .toast-content {
@@ -663,11 +665,11 @@ a:hover {
 }
 
 .toast-error .toast-close {
-  color: #991B1B;
+  color: #991b1b;
 }
 
 .toast-info .toast-close {
-  color: #1E40AF;
+  color: #1e40af;
 }
 
 @media (max-width: 480px) {
