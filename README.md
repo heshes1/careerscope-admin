@@ -9,26 +9,16 @@ CareerScope Admin is a React + Vite dashboard for managing professional experien
 - View basic analytics
 - Use role-based demo access
 
-## Setup
+## Installation
 
 ```bash
 npm install
 ```
 
-## Run
+## Usage
 
 ```bash
 npm run dev
-```
-
-## Production
-
-```bash
 npm run build
 npm run preview
 ```
-
-## Demo Credentials
-
-- `admin@demo.com` / `admin123`
-- `viewer@demo.com` / `viewer123`
